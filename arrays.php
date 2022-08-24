@@ -19,7 +19,7 @@ $resultUnique = array_filter($array, function ($value) use (&$uniqueKeys) {
 	}
 	return false;
 });
-//var_dump($resultUnique);
+var_dump($resultUnique);
 
 // отсортировать многомерный массив по ключу (любому)
 $key = 'id';
@@ -28,14 +28,14 @@ $resultSort = $array;
 usort($array, function($a,$b) use ($key){
 	return $a[$key] > $b[$key] ? 1 : -1;
 });
-//var_dump($resultSort);
+var_dump($resultSort);
 
 // вернуть из массива только элементы, удовлетворяющие внешним условиям (например элементы с определенным id)
 $id = 1;
 $resultFilter = array_filter($array, function ($value) use ($id) {
 	return isset($value['id']) && $value['id'] === $id;
 });
-//var_dump($resultFilter);
+var_dump($resultFilter);
 
 // изменить в массиве значения и ключи (использовать name => id в качестве пары ключ => значение)
 $resultFlip = [];
@@ -43,4 +43,4 @@ array_map(function (array $value) use (&$resultFlip) {
 	$resultFlip[$value['name']] = $value['id'];
 	return null;
 }, $array);
-//var_dump($resultFlip);
+var_dump($resultFlip);
